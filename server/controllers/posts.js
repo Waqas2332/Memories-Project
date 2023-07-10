@@ -13,7 +13,12 @@ export const getPosts = async (req, res, next) => {
 
 export const createPost = async (req, res, next) => {
   const post = req.body;
-  console.log(post.selectedFile);
+  // post.title = req.body.title;
+  // post.selectedFile = req.file.path;
+  // console.log(post.selectedFile);
+  // post.creator = req.body.creator;
+  // post.tags = req.body.tags;
+  // post.message = req.body.message;
   const newPost = new Post(post);
   try {
     await newPost.save();

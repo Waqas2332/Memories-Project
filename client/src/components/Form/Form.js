@@ -1,6 +1,6 @@
 import { TextField, Button, Typography, Paper } from "@mui/material";
 import { useState } from "react";
-import ReactFileBase64 from "react-file-base64";
+import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
 import { createPost } from "../../actions/posts";
 
@@ -69,7 +69,7 @@ function Form() {
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
         <div style={{ width: "97%", margin: "10px 0" }}>
-          <ReactFileBase64
+          <FileBase
             type="file"
             multiple={false}
             onDone={({ base64 }) =>

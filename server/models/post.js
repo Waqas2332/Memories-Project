@@ -17,13 +17,16 @@ const postSchema = mongoose.Schema(
     tags: {
       type: [String],
     },
-    selectdFile: {
+    selectedFile: {
       type: String,
-      default: "",
     },
     likeCount: {
       type: Number,
       default: 0,
+    },
+    createdAt: {
+      type: Date,
+      default: new Date().toISOString(),
     },
   },
   { timeStamps: true }
