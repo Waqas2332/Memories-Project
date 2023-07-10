@@ -9,3 +9,12 @@ export const fetchPosts = createAsyncThunk("posts/fectchPosts", async () => {
     console.log(error.message);
   }
 });
+
+export const createPost = createAsyncThunk("posts/createPost", async (post) => {
+  try {
+    const response = await api.createPost(post);
+    console.log(...response);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
