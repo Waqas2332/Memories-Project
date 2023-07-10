@@ -28,7 +28,8 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPosts());
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   return (
     <Container maxwidth="lg">

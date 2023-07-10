@@ -19,6 +19,7 @@ const postSchema = mongoose.Schema(
     },
     selectdFile: {
       type: String,
+      default: "",
     },
     likeCount: {
       type: Number,
