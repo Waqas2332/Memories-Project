@@ -11,7 +11,7 @@ export const getPosts = async (req, res, next) => {
   }
 };
 
-export const createPost = async (req, res, next) => {
+export const createPost = (req, res, next) => {
   const post = req.body;
   // post.title = req.body.title;
   // post.selectedFile = req.file.path;
@@ -20,12 +20,14 @@ export const createPost = async (req, res, next) => {
   // post.tags = req.body.tags;
   // post.message = req.body.message;
   const newPost = new Post(post);
-  try {
-    await newPost.save();
-    res
-      .status(201)
-      .json({ post, newPost, message: "Post Created Successfully" });
-  } catch (error) {
-    res.status(409).json({ message: error.message });
-  }
+  newPost
+    .save()
+    .then((post) => {
+      res
+        .status(201)
+        .json({ post, post, message: "Post Created Successfully" });
+    })
+    .catch((err) => {
+      res.status(409).json({ message: err.message });
+    });
 };

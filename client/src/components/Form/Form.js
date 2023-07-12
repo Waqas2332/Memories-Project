@@ -20,7 +20,7 @@ function Form() {
 
   function clear() {}
   return (
-    <Paper sx={{ padding: 1 }}>
+    <Paper sx={{ padding: 3 }} style={{ marginLeft: "50px" }}>
       <form
         autoComplete="off"
         noValidate

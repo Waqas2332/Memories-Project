@@ -13,7 +13,7 @@ export const fetchPosts = createAsyncThunk("posts/fectchPosts", async () => {
 export const createPost = createAsyncThunk("posts/createPost", async (post) => {
   try {
     const response = await api.createPost(post);
-    console.log(...response);
+    return response.data.post;
   } catch (error) {
     console.log(error.message);
   }
