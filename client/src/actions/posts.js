@@ -18,3 +18,16 @@ export const createPost = createAsyncThunk("posts/createPost", async (post) => {
     console.log(error.message);
   }
 });
+
+export const updatePost = createAsyncThunk(
+  "posts/updatePost",
+  async ({ id, post }) => {
+    console.log(post);
+    try {
+      const response = await api.updatePost(id, post);
+      return response.data.post;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+);

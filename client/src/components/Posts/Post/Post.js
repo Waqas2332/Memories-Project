@@ -12,7 +12,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import moment from "moment";
 
-function Post({ post }) {
+function Post({ post, setCurrentId }) {
   return (
     <Card
       sx={{
@@ -55,7 +55,13 @@ function Post({ post }) {
           color: "white",
         }}
       >
-        <Button style={{ color: "white" }} size="small" onClick={() => {}}>
+        <Button
+          style={{ color: "white" }}
+          size="small"
+          onClick={() => {
+            setCurrentId(post._id);
+          }}
+        >
           <MoreHorizIcon fontSize="default" />
         </Button>
       </div>

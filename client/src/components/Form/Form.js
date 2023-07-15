@@ -1,10 +1,10 @@
 import { TextField, Button, Typography, Paper } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FileBase from "react-file-base64";
-import { useDispatch } from "react-redux";
-import { createPost } from "../../actions/posts";
+import { useDispatch, useSelector } from "react-redux";
+import { createPost, updatePost } from "../../actions/posts";
 
-function Form() {
+function Form({ currentId, setCurrentId }) {
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -13,12 +13,28 @@ function Form() {
     selectedFile: "",
   });
   const dispatch = useDispatch();
+  const post = useSelector((state) =>
+    currentId ? state.posts.posts.find((p) => p._id === currentId) : null
+  );
+
+  useEffect(() => {
+    if (post) {
+      setPostData(post);
+    }
+  }, [post]);
+
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(createPost(postData));
+    if (currentId) {
+      dispatch(updatePost({ id: currentId, post: postData }));
+    } else {
+      dispatch(createPost(postData));
+    }
   }
 
-  function clear() {}
+  function clear() {
+    setCurrentId(null);
+  }
   return (
     <Paper sx={{ padding: 3 }} style={{ marginLeft: "50px" }}>
       <form
@@ -27,7 +43,9 @@ function Form() {
         sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">Creating a Memory</Typography>
+        <Typography variant="h6">
+          {currentId ? "Editing" : "Creating"} a Memory
+        </Typography>
         <TextField
           sx={{ marginBottom: "20px" }}
           name="creator"
