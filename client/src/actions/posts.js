@@ -31,3 +31,14 @@ export const updatePost = createAsyncThunk(
     }
   }
 );
+
+export const deletePost = createAsyncThunk("posts/deletePost", async (id) => {
+  try {
+    const response = await api.deletePost(id);
+    if (response.status === 200) {
+      return id;
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+});
