@@ -4,6 +4,7 @@ import {
   createPost,
   updatePost,
   deletePost,
+  likePost,
 } from "../actions/posts";
 
 const initialState = {
@@ -34,6 +35,12 @@ const postsSlice = createSlice({
       state.status = "success";
       console.log(action.payload);
       state.posts = state.posts.filter((post) => post._id !== action.payload);
+    });
+    builder.addCase(likePost.fulfilled, (state, action) => {
+      state.status = "success";
+      state.posts = state.posts.map((post) =>
+        post._id === action.payload._id ? action.payload : post
+      );
     });
   },
 });
