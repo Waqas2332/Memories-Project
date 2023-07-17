@@ -36,7 +36,20 @@ function Form({ currentId, setCurrentId }) {
     setCurrentId(null);
   }
   return (
-    <Paper sx={{ padding: 3 }} style={{ marginLeft: "50px" }}>
+    <Paper
+      sx={{
+        padding: 3,
+        marginLeft: {
+          md: "50px",
+          sm: "0",
+        },
+        marginBottom: {
+          md: "0",
+          sm: "30px",
+          xs: "30px",
+        },
+      }}
+    >
       <form
         autoComplete="off"
         noValidate

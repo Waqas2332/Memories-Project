@@ -41,11 +41,23 @@ function App() {
       </MyAppBar>
       <Grow in>
         <Container>
-          <Grid container justify="space-between" alignItems="stretch">
-            <Grid item xs={12} sm={7}>
+          <Grid
+            container
+            sx={{
+              display: "flex",
+              flexDirection: {
+                md: "row",
+                sm: "column-reverse",
+                xs: "column-reverse",
+              },
+            }}
+            justify="space-between"
+            alignItems="stretch"
+          >
+            <Grid item sm={12} md={7}>
               <Posts setCurrentId={setCurrentId} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item sm={12} md={4}>
               <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
