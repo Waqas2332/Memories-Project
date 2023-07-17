@@ -76,11 +76,20 @@ function Post({ post, setCurrentId }) {
         }}
       >
         <Typography variant="body2" color="textSecondary">
-          {post.tags.map((tag) => `# ${tag}`)}
+          {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
       <CardContent>
         <Typography sx={{ padding: "0 16px" }} gutterBottom variant="h5">
+          {post.title}
+        </Typography>
+        <Typography
+          sx={{ padding: "0 16px" }}
+          gutterBottom
+          variant="body2"
+          component="p"
+          color="GrayText"
+        >
           {post.message}
         </Typography>
       </CardContent>
@@ -99,7 +108,7 @@ function Post({ post, setCurrentId }) {
           }}
         >
           <ThumbUpAltIcon />
-          Like {post.likeCount}
+          &nbsp; Like &nbsp; {post.likeCount}
         </Button>
         <Button
           size="small"
