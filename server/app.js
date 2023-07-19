@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import multer from "multer";
 import PostRoutes from "./routes/posts.js";
 import dotenv from "dotenv";
+import { getPosts } from "./controllers/posts.js";
 
 const app = express();
 dotenv.config();
@@ -18,7 +19,7 @@ app.use(
     credentials: true,
   })
 );
-app.use("/posts", PostRoutes);
+app.use("/posts", getPosts);
 app.use("/", (req, res) => {
   res.send("Hello");
 });
