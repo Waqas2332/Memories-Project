@@ -18,11 +18,10 @@ app.use(
     credentials: true,
   })
 );
+app.use("/posts", PostRoutes);
 app.use("/", (req, res) => {
   res.send("hello");
 });
-
-app.use("/posts", PostRoutes);
 
 const PORT = process.env.PORT || 5000;
 
