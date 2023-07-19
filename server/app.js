@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(
   cors({
-    origin: "https://memories-project-blond.vercel.app/",
+    origin: ["https://memories-project-blond.vercel.app/"],
+    method: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 app.use("/posts", PostRoutes);
