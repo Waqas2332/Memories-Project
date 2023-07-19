@@ -76,3 +76,6 @@ export const likePost = async (req, res, next) => {
 
   res.status(200).json({ message: "Liked Succesfully", post: updatedPost });
 };
+export const index = (req, res) => {
+  res.send("Hello from me");
+};
