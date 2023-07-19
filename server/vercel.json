@@ -13,7 +13,7 @@
     },
     {
       "src": "/posts",
-      "dest": "./routes/posts.js"
+      "dest": "routes/posts.js"
     }
   ]
 }
