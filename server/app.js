@@ -20,7 +20,9 @@ app.use(
   })
 );
 app.use("/posts", PostRoutes);
-app.use("/", index);
+app.use("/", (req, res) => {
+  res.send("hello");
+});
 
 const PORT = process.env.PORT || 5000;
 
