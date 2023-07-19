@@ -8,8 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/.*",
+      "src": "/",
       "dest": "app.js"
+    },
+    {
+      "src": "/posts",
+      "dest": "./routes/posts.js"
     }
   ]
 }
